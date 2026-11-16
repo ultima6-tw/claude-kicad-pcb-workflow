@@ -1,0 +1,7 @@
+(version 1)
+
+# Minimum clearance between side A (24 V input, earth side, incl. the RJ45 shield) and side B (floating +300 V).
+# 2.5 mm is taken from secondary sources for IPC-2221, external uncoated, 301-500 V; not yet checked against the standard itself.
+(rule "HV_barrier_A_to_B"
+	(constraint clearance (min 2.5mm))
+	(condition "(A.NetClass == 'SIDE_A' && B.NetClass != 'SIDE_A') || (B.NetClass == 'SIDE_A' && A.NetClass != 'SIDE_A')"))
